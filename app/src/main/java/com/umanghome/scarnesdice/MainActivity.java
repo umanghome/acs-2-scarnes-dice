@@ -1,5 +1,6 @@
 package com.umanghome.scarnesdice;
 
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -30,12 +31,15 @@ public class MainActivity extends AppCompatActivity {
     private int turn;
 
     // Create UI elements
-    TextView scoreTextView;
-    TextView turnTextView;
-    ImageView diceImageView;
-    Button rollButton;
-    Button holdButton;
-    Button resetButton;
+    private TextView scoreTextView;
+    private TextView turnTextView;
+    private ImageView diceImageView;
+    private Button rollButton;
+    private Button holdButton;
+    private Button resetButton;
+
+    private final Handler handler = new Handler();
+    private Runnable computerTurnRunnable;
 
     // Boolean to keep track of whether the game is over
     private boolean gameOver;
@@ -58,6 +62,13 @@ public class MainActivity extends AppCompatActivity {
 
         // Initialize variables
         reset();
+
+        computerTurnRunnable = new Runnable () {
+            @Override
+            public void run () {
+                computerTurn();
+            }
+        };
 
         // Action to do when rollButton is clicked
         rollButton.setOnClickListener(new View.OnClickListener() {
@@ -201,7 +212,8 @@ public class MainActivity extends AppCompatActivity {
             // Strategy: If turn score is less than 20, roll. Hold otherwise.
             if (computerTurnScore < 20) {
                 // Roll
-                computerTurn();
+                handler.postDelayed(computerTurnRunnable, 1000);
+//                computerTurn();
             } else {
                 // Hold
                 addComputersScore();
