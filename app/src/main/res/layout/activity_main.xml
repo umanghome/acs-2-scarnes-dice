@@ -9,8 +9,39 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.umanghome.scarnesdice.MainActivity">
 
-    <TextView
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:id="@+id/diceImageView"
+        android:src="@drawable/dice1"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Roll"
+        android:id="@+id/rollButton"
+        android:layout_marginTop="33dp"
+        android:layout_below="@+id/diceImageView"
+        android:layout_toLeftOf="@+id/diceImageView"
+        android:layout_toStartOf="@+id/diceImageView" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hold"
+        android:id="@+id/holdButton"
+        android:layout_alignTop="@+id/rollButton"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reset"
+        android:id="@+id/resetButton"
+        android:layout_alignTop="@+id/holdButton"
+        android:layout_toRightOf="@+id/diceImageView"
+        android:layout_toEndOf="@+id/diceImageView" />
+
 </RelativeLayout>
