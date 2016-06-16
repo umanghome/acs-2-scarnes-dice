@@ -14,7 +14,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/diceImageView"
         android:src="@drawable/dice1"
-        android:layout_alignParentTop="true"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/turnTextView"
         android:layout_centerHorizontal="true" />
 
     <Button
@@ -22,10 +23,10 @@
         android:layout_height="wrap_content"
         android:text="Roll"
         android:id="@+id/rollButton"
-        android:layout_marginTop="33dp"
         android:layout_below="@+id/diceImageView"
         android:layout_toLeftOf="@+id/diceImageView"
-        android:layout_toStartOf="@+id/diceImageView" />
+        android:layout_toStartOf="@+id/diceImageView"
+        android:layout_marginTop="20dp" />
 
     <Button
         android:layout_width="wrap_content"
@@ -43,5 +44,28 @@
         android:layout_alignTop="@+id/holdButton"
         android:layout_toRightOf="@+id/diceImageView"
         android:layout_toEndOf="@+id/diceImageView" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Your Score: 0, Computer&apos;s Score: 0"
+        android:id="@+id/scoreTextView"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="false"
+        android:gravity="center_vertical|center_horizontal" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Your turn, score: 0"
+        android:id="@+id/turnTextView"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical|center_horizontal"
+        android:layout_below="@+id/scoreTextView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>
