@@ -184,6 +184,8 @@ public class MainActivity extends AppCompatActivity {
         rollButton.setEnabled(false);
         holdButton.setEnabled(false);
 
+        Log.v("Computer", "Turn");
+
         // Roll the die
         int number = random.nextInt(6) + 1;
         setDiceImage(number);
@@ -213,7 +215,6 @@ public class MainActivity extends AppCompatActivity {
             if (computerTurnScore < 20) {
                 // Roll
                 handler.postDelayed(computerTurnRunnable, 1000);
-//                computerTurn();
             } else {
                 // Hold
                 addComputersScore();
@@ -224,11 +225,13 @@ public class MainActivity extends AppCompatActivity {
         // Update string
         setTurnString();
 
-        // Enable buttons if game isn't over
-        if (!gameOver) {
+        // Enable buttons if it is the user's turn
+        if (turn % 2 == 0) {
             rollButton.setEnabled(true);
             holdButton.setEnabled(true);
         }
+
+        Log.v("Computer", "End");
     }
 
     // Update computer's score
